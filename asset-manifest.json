@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/FindFalconeReact/static/css/main.7fa68521.chunk.css",
+    "main.js": "/FindFalconeReact/static/js/main.58a36b81.chunk.js",
+    "main.js.map": "/FindFalconeReact/static/js/main.58a36b81.chunk.js.map",
+    "runtime-main.js": "/FindFalconeReact/static/js/runtime-main.54c3b001.js",
+    "runtime-main.js.map": "/FindFalconeReact/static/js/runtime-main.54c3b001.js.map",
+    "static/js/2.58ac0a97.chunk.js": "/FindFalconeReact/static/js/2.58ac0a97.chunk.js",
+    "static/js/2.58ac0a97.chunk.js.map": "/FindFalconeReact/static/js/2.58ac0a97.chunk.js.map",
+    "static/js/3.60ffe1d6.chunk.js": "/FindFalconeReact/static/js/3.60ffe1d6.chunk.js",
+    "static/js/3.60ffe1d6.chunk.js.map": "/FindFalconeReact/static/js/3.60ffe1d6.chunk.js.map",
+    "index.html": "/FindFalconeReact/index.html",
+    "static/css/main.7fa68521.chunk.css.map": "/FindFalconeReact/static/css/main.7fa68521.chunk.css.map",
+    "static/js/2.58ac0a97.chunk.js.LICENSE.txt": "/FindFalconeReact/static/js/2.58ac0a97.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.54c3b001.js",
+    "static/js/2.58ac0a97.chunk.js",
+    "static/css/main.7fa68521.chunk.css",
+    "static/js/main.58a36b81.chunk.js"
+  ]
+}
