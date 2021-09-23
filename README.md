@@ -1,8 +1,29 @@
-# Getting Started with Create React App
+# Finding Falcon
+Finding falcon challenge by Geektrust
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
+
+- [Overview](#overview)
+  - [Available Scripts](#available-scripts)
+- [Folder Structure](#folder-structure)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Acknowledgments](#acknowledgments)
 
 ## Available Scripts
+
+
+
+## Overview
+
+Our problem is set in the planet of Lengaburu...in the distant distant galaxy of Tara B. After the recent war with neighbouring planet Falicornia, King Shan has exiled the Queen of Falicornia for 15 years.
+Queen Al Falcone is now in hiding. But if King Shan can find her before the years are up, she will be exiled for another 15 years....
+
+### Available Scripts
 
 In the project directory, you can run:
 
@@ -19,52 +40,100 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Folder Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    - src/components/main
+            - DropDownList.js
+            - Header.js
+            - Footer.js
+    - src/components/main/_test_   
+            - - DropDownList.test.js     
+    - src/components/secondary        
+            - FindFalcon.js
+            - NotFound.js
+            - SuccessFound.js
+    - src/components/secondary/_test 
+            - FindFalcon.test.js
+            - NotFound.test.js
+            - SuccessFound.test.js         
+    - src/constants
+            - Constants.js    
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Screenshot
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Find Falcone 
+  ![](images/image1.png)
+- Result
+  ![](images/image2.png)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Links
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Live Site URL: [Live Website](https://kurosakicoder.github.io/ReactAlbums)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## My process
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+First, I used the Fetch API method to display the data on the front end. Then I used Bootstrap and Vanilla CSS to style the data.
 
-## Learn More
+### Built with
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- JSX
+- CSS
+- ReactJS
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### What I learned
 
-### Code Splitting
+I learnt how to manipulate react state values 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```js
+// Function trigered when submit button is clicked
+    const validateDistance = (e) => {
+        e.preventDefault()
+         // When submit button is clicked, we validate if vehicle max distance is greater than planet distance
+        if(planets[planetIdx].distance <= vehicles[vehicleIdx].max_distance){
+            // adding selected planets to the useState value selectPlanets
+            let allSelectedPlanets = [...selectPlanets,planets[planetIdx].name]
+            setSelectPlanets(allSelectedPlanets)
+             // adding selected vehicles to the useState value selectVehicles
+            let allSelectedVehicles = [...selectVehicles,vehicles[vehicleIdx].name]
+            setSelectVehicles(allSelectedVehicles)
+            // adding selected total time to the useState value totalTime
+            // we also calculate the time taken by each vechicle by calculating distance/speed
+            let allSelectedTime = totalTime + vehicles[vehicleIdx].max_distance/vehicles[vehicleIdx].speed;
+            setTotalTime(allSelectedTime)
 
-### Analyzing the Bundle Size
+            // Adding the key add for those planets which has been selected
+            // if the key add exists for the planet, the option for selecting this planets becomes disabled
+            planets[planetIdx]['add'] = true
+            let settingPlanetsAgain = [...planets]
+            setPlanets(settingPlanetsAgain)
+ 
+            if(vehicles[vehicleIdx].total_no > 1){
+                // this condition is applied if there are more than one vehicle of the same type
+                // we decrease the count of this vehicles by one
+                vehicles[vehicleIdx].total_no -= 1  
+                // Now we set the state of the vehicles to the new vehicles value   
+                let settingVehiclesAgain = [...vehicles]
+                setVehicles(settingVehiclesAgain)
+            }
+            else if(vehicles[vehicleIdx].total_no == 1){
+                // This condition is applied if there is one vehicle of a particular type
+                // Adding the key add for those vehicles which has been selected
+                // if the key add exists for the vehcile, the option for selecting this vehicle becomes disabled
+                vehicles[vehicleIdx]['add'] = true
+                vehicles[vehicleIdx].total_no -= 1
+                // Now we set the state of the vehicles to the new vehicles value 
+                let settingVehiclesAgain = [...vehicles]
+                setVehicles(settingVehiclesAgain)      
+            }
+        }        
+    }
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Useful resources
 
-### Making a Progressive Web App
+- [UPDATE STATE CHANGE](https://stackoverflow.com/questions/55987953/how-do-i-update-states-onchange-in-an-array-of-object-in-react-hooks)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Acknowledgments
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I have done this project from scratch by referencing the websites that I mentioned.
